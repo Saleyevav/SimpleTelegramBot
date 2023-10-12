@@ -1,3 +1,3 @@
 export function testFoo(message: string): void {
-  console.log(message);
+  console.log(process.env.API_KEY_BOT);
 }
