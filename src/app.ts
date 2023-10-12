@@ -1,7 +1,5 @@
-import dotenv from "dotenv";
-import { testFoo } from "./modules/testFoo";
+import { bot } from "./modules/bot";
 
-dotenv.config();
-
-const m: string = "Hello";
-testFoo(m);
+bot.on("text", async (msg) => {
+  console.log(msg);
+});
