@@ -1,2 +1,4 @@
+import { testFoo } from "./modules/testFoo";
+
 const m: string = "Hello";
-console.log(m);
+testFoo(m);
