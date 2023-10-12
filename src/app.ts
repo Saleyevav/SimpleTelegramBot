@@ -10,6 +10,11 @@ const commands = [
     command: "help",
     description: "Раздел помощи",
   },
+
+  {
+    command: "menu",
+    description: "Меню",
+  },
 ];
 
 bot.setMyCommands(commands);
@@ -26,6 +31,24 @@ bot.on("text", async (msg) => {
           parse_mode: "HTML",
         }
       );
+    } else if (msg.text == "/menu") {
+      await bot.sendMessage(msg.chat.id, `Меню бота`, {
+        reply_markup: {
+          keyboard: [
+            ["⭐️ Картинка", "⭐️ Видео"],
+            ["⭐️ Аудио", "⭐️ Голосовое сообщение"],
+            ["⭐️ Контакт", "⭐️ Геолокация"],
+            ["❌ Закрыть меню"],
+          ],
+          resize_keyboard: true,
+        },
+      });
+    } else if (msg.text == "❌ Закрыть меню") {
+      await bot.sendMessage(msg.chat.id, "Меню закрыто", {
+        reply_markup: {
+          remove_keyboard: true,
+        },
+      });
     } else {
       await bot.sendMessage(msg.chat.id, msg.text);
     }
